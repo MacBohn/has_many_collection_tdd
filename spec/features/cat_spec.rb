@@ -2,9 +2,7 @@ require 'rails_helper'
   feature 'cats' do
     scenario 'Each Cat show page should list the toys that cat owns' do
 
-          cat = Cat.create!(
-          name:"Omar"
-          )
+          cat = create_cat
 
           toy = Toy.create!(
           name:"Lazer",
@@ -20,5 +18,3 @@ require 'rails_helper'
 
     end
   end
-
-    
