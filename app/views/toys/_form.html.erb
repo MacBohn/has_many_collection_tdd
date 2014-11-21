@@ -2,7 +2,8 @@
 
   <div class="form-group">
     <%= f.label :name %>
-    <%= f.text_field :name, class: "form-control" %>
+    <%= f.collection_select(:cat_id, Cat.all, :id, :name,{include_blank:"Please select a cat"},{class: "form-control"}) %>
+    </em>
   </div>
 
   <em>insert collection select for Cat</em>
