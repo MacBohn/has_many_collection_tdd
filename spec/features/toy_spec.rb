@@ -27,4 +27,19 @@ feature 'Toys' do
     expect(page).to have_content('Cole Slaw')
     expect(page).to have_content('Omar')
   end
+  scenario 'Toy show page should list the cat that owns that toy (toys are not shared)' do
+    cat = Cat.create!(
+      name:"Omar"
+    )
+    toy = Toy.create!(
+    name: "Cole Slaw",
+    cat_id: cat.id
+    )
+    visit toys_path
+    click_on toy.name
+    
+    expect(page).to have_content(toy.name)
+    expect(page).to have_content(cat.name)
+
+  end
 end
