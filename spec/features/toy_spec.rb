@@ -14,4 +14,17 @@ feature 'Toys' do
     expect(page).to have_content(toy.name)
     expect(page).to have_content(cat.name)
   end
+
+  scenario 'User can create a new cats toy' do
+    cat = Cat.create!(
+      name:"Omar"
+    )
+    visit toys_path
+    click_on 'New Toy'
+    fill_in 'Name', with: 'Cole Slaw'
+    select cat.name, from: 'toy[cat_id]'
+    click_on 'Create Toy'
+    expect(page).to have_content('Cole Slaw')
+    expect(page).to have_content('Omar')
+  end
 end
