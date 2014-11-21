@@ -22,6 +22,7 @@ feature 'Toys' do
   scenario 'Toy show page should list the cat that owns that toy (toys are not shared)' do
     cat = create_cat
     toy = create_toy(cat)
+
     visit toys_path
     click_on toy.name
 
